@@ -7,7 +7,7 @@ function Create2DArray(rows, columns){
 	return arr;
 }
 
-var grid = Create2DArray(10, 5);
+var grid = Create2DArray(5, 15);
 
 //Set values to empty
 for(var i = 0; i < grid.length; i++){
@@ -17,7 +17,7 @@ for(var i = 0; i < grid.length; i++){
 }
 
 //for testing purposes
-for(var i = 0; i < grid.length; i++){
+for(var i = 0; i < grid[0].length; i++){
 	grid[0][i] = 1;
 }
 
