@@ -4,9 +4,18 @@ function PrintArray(arr) {
     }
 }
 
+function PrintNeighbors(arr){
+    context.fillStyle="#FF0000";
+    for(var i = 0; i < arr.length; i++) {
+        for(var j = 0; j<arr[i].length; j++) {
+            context.fillText("Neighbors : " + CheckNeighbors(grid, i, j), j*BOX_SIZE+10, i*BOX_SIZE+ 10);
+        }
+    }
+    context.fillStyle="#000000";
+}
 var grid = Create2dArray(); 
 ResetArray(grid);
-var existingCells = CreateCells(grid);
+var existingCells = CreateCells(grid);//[new Cell(1, 2), new Cell (2,2), new Cell(2,3)]; //
 FillArray(grid, existingCells);
 DrawGrid(grid);
 FillGrid(grid);
@@ -28,11 +37,7 @@ function run() {
     FillGrid(grid);
 
     PrintArray(grid);
+//    PrintNeighbors(grid);
 }
 
-//window.setInterval("run()", 1000);
-var runButton = document.createElement("BUTTON");
-runButton.onClick = run();
-var t = document.createTextNode("Step");
-runButton.appendChild(t);
-document.body.appendChild(runButton);
+window.setInterval("run()", 700);

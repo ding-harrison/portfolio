@@ -2,7 +2,7 @@
 var ARRAY_LENGTH_COL =10;
 var ARRAY_LENGTH_ROW = 10;
 var BOX_SIZE = 10;
-var BOX_MULTIPLIER= .05;
+var BOX_MULTIPLIER= .01;
 var canvas;
 var context;
 
@@ -61,7 +61,7 @@ function DrawGrid(arr) {
 // FILLS THE GRID WHERE THE VALUES ARE EQUIVALENT TO 1
 function FillGrid(arr){ 
     for(i=0; i < arr.length;i++){
-        for(j = 0; j < arr.length;j++) {
+        for(j = 0; j < arr[i].length;j++) {
            if(grid[i][j] == 1) {
                 context.fillRect(j*BOX_SIZE, i*BOX_SIZE, BOX_SIZE, BOX_SIZE);
            }

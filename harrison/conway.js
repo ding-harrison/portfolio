@@ -16,7 +16,7 @@ function CheckNeighbors(grid, row, col){
         neighbors++;
     if(col-1 > 0 && grid[row][col-1]==1)
         neighbors++;
-    if(row-1 > 0 && col+1 < ARRAY_LENGTH_ROW && grid[row-1][col+1] ==1)
+    if(row-1 > 0 && col+1 < ARRAY_LENGTH_COL && grid[row-1][col+1] ==1)
         neighbors++;
     if(row-1 > 0 && grid[row-1][col]==1)
         neighbors++;
@@ -50,7 +50,8 @@ function KillCells(grid, existingCells) {
 function CreateCells(grid) {
     var createdCells = [];
     var currentRow = Math.floor(grid.length/2);
-    for(var i = 0; i< grid.length;i++){
+    console.log(grid[currentRow].length);
+    for(var i = 0; i< grid[currentRow].length;i++){
         createdCells.push(new Cell(currentRow, i));
     }
     return createdCells;
