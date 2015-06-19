@@ -1,3 +1,11 @@
+if(window.File && window.FileReader && window.FileList && window.Blob){
+	console.log("Success!");
+}else{
+	alert('File APIs not supported');
+}
+
+
+
 var c;
 var ctx;
 
@@ -38,7 +46,7 @@ function printCells(){
 
 //draw the grid
 function drawGrid(){
-	ctx.fillStyle="#000000";
+	ctx.strokeStyle="#000000";
 	for(var i = 0; i < grid.length; i++){
 		ctx.beginPath();
 		ctx.moveTo(0, boxSize*i);
@@ -60,7 +68,7 @@ function drawCells(){
 		for(var j = 0; j < grid[i].length; j++){
 			if(grid[i][j].getState() == 1){
 				ctx.fillStyle="#000000";
-			}else if(grid[i][j].getState() == 0){
+			}else{
 				ctx.fillStyle="#FFFFFF";
 			}
 			ctx.fillRect(boxSize*j,boxSize*i,boxSize,boxSize);
@@ -127,11 +135,15 @@ function updateCells(){
 	
 	var tempGrid = Create2DArray(5,10);
 	
+	//Create a copy of the old grid for reference
 	for(var k=0; k < grid.length;k++){
 		for(var l=0; l < grid[k].length;l++){
-			tempGrid[k][l] = grid[k][l];
+			tempGrid[k][l] = new Cell(tempGrid,k,l,grid[k][l].getState());
 		}
 	}
+
+	/*Look through old grid to find necessary changes
+	/*Changes needed stored in new tempGrid*/
 	for(var i=0; i < grid.length;i++){
 		for(var j=0; j < grid[i].length;j++){
 			testCell = grid[i][j];
@@ -147,25 +159,30 @@ function updateCells(){
 			else if(testCell.getState()==1 && testCell.getNeighbors().length>3)
 				tempTestCell.setState(0);
 			//4. Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
-			else if(testCell.getState()==0 && testCell.getNeighbors().length==3)
+			if(testCell.getState()==0 && testCell.getNeighbors().length==3)
 				tempTestCell.setState(1);
 		}
 	}
-	grid = tempGrid;
+
+	//Update the old grid with necessary changes
+	for(var o=0; o < grid.length;o++){
+		for(var p=0; p < grid[o].length;p++){
+			grid[o][p] = new Cell(grid,o,p,tempGrid[o][p].getState());
+		}
+	}
 }
 
 var grid = Create2DArray(5, 10);
 var boxSize = 25;
 
 createCells();
-printCells();
-drawGrid();
 drawCells();
+drawGrid();
+
 function run(){
-	printCells();
-	drawGrid();
 	updateCells();
 	drawCells();
+	drawGrid();
 }
 run();
 window.setInterval('run()',1000);
