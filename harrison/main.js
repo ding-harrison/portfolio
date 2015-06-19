@@ -40,4 +40,4 @@ function run() {
 //    PrintNeighbors(grid);
 }
 
-window.setInterval("run()", 700);
+window.setInterval("run()", 100);

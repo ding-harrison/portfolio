@@ -2,7 +2,7 @@
 var ARRAY_LENGTH_COL =10;
 var ARRAY_LENGTH_ROW = 10;
 var BOX_SIZE = 10;
-var BOX_MULTIPLIER= .01;
+var BOX_MULTIPLIER= .005;
 var canvas;
 var context;
 
@@ -29,7 +29,10 @@ function Create2dArray() {
 function ResetArray(arr) {
     for (i = 0; i <arr.length ; i++) {
         for(j = 0; j < arr[i].length; j++){
-            arr[i][j]= 0;
+            if(arr[i][j] == 1 || arr[i][j] == 2)
+                arr[i][j]= 2;
+            else
+                arr[i][j]=0;
         }
     }
     return arr;
@@ -64,6 +67,11 @@ function FillGrid(arr){
         for(j = 0; j < arr[i].length;j++) {
            if(grid[i][j] == 1) {
                 context.fillRect(j*BOX_SIZE, i*BOX_SIZE, BOX_SIZE, BOX_SIZE);
+           }
+           if(grid[i][j] == 2){
+                context.fillStyle = "#999999";
+                context.fillRect(j*BOX_SIZE, i*BOX_SIZE, BOX_SIZE, BOX_SIZE);
+                context.fillStyle = "#000000";
            }
         }
     }
