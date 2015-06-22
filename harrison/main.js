@@ -36,7 +36,7 @@ function run() {
 //    DrawGrid(grid);
     FillGrid(grid);
 
-    PrintArray(grid);
+//    PrintArray(grid);
 //    PrintNeighbors(grid);
 }
 
