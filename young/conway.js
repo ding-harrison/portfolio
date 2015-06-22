@@ -4,16 +4,19 @@ if(window.File && window.FileReader && window.FileList && window.Blob){
 	alert('File APIs not supported');
 }
 
-
-
 var c;
 var ctx;
+var PAGE_WIDTH = $(window).width();
+var PAGE_HEIGHT = $(window).height();
+var BOX_SIZE = PAGE_WIDTH/100;
+var grid = Create2DArray(PAGE_HEIGHT/BOX_SIZE, 100);
+
 
 (function() {
 	c = document.getElementById("canvas");
 	ctx = c.getContext("2d");
-	c.width = window.innerWidth;
-	c.height = window.innerHeight;
+	c.width = PAGE_WIDTH;
+	c.height = PAGE_HEIGHT;
 
 })();
 function Create2DArray(rows, columns){
@@ -32,9 +35,9 @@ function createCells(){
 			grid[i][j] = new Cell(grid,i,j,0);	
 		}
 	}
-	grid[3][1].setState(1);
-	grid[3][2].setState(1);
-	grid[3][3].setState(1);
+	for(var j = 0; j < grid[0].length; j++){
+		grid[0][j].setState(1);
+	}
 }
 
 //print the grid
@@ -46,17 +49,17 @@ function printCells(){
 
 //draw the grid
 function drawGrid(){
-	ctx.strokeStyle="#000000";
+	ctx.strokeStyle="#333333";
 	for(var i = 0; i < grid.length; i++){
 		ctx.beginPath();
-		ctx.moveTo(0, boxSize*i);
-		ctx.lineTo(grid[i].length*boxSize, boxSize*i);
+		ctx.moveTo(0, BOX_SIZE*i);
+		ctx.lineTo(grid[i].length*BOX_SIZE, BOX_SIZE*i);
 		ctx.fill();
 		ctx.stroke();
 		for(var j = 0; j < grid[0].length; j++){
 			ctx.beginPath();
-			ctx.moveTo(boxSize*j, 0);
-			ctx.lineTo(boxSize*j, grid.length*boxSize);
+			ctx.moveTo(BOX_SIZE*j, 0);
+			ctx.lineTo(BOX_SIZE*j, grid.length*BOX_SIZE);
 			ctx.fill();
 			ctx.stroke();
 		}
@@ -71,7 +74,7 @@ function drawCells(){
 			}else{
 				ctx.fillStyle="#FFFFFF";
 			}
-			ctx.fillRect(boxSize*j,boxSize*i,boxSize,boxSize);
+			ctx.fillRect(BOX_SIZE*j,BOX_SIZE*i,BOX_SIZE,BOX_SIZE);
 		}
 	}
 }
@@ -133,7 +136,7 @@ function updateCells(){
 	* 4. Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 	*/
 	
-	var tempGrid = Create2DArray(5,10);
+	var tempGrid = Create2DArray(PAGE_HEIGHT/BOX_SIZE,100);
 	
 	//Create a copy of the old grid for reference
 	for(var k=0; k < grid.length;k++){
@@ -172,8 +175,6 @@ function updateCells(){
 	}
 }
 
-var grid = Create2DArray(5, 10);
-var boxSize = 25;
 
 createCells();
 drawCells();
@@ -185,4 +186,4 @@ function run(){
 	drawGrid();
 }
 run();
-window.setInterval('run()',1000);
+window.setInterval('run()',125);
