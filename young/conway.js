@@ -8,8 +8,9 @@ var c;
 var ctx;
 var PAGE_WIDTH = $(window).width();
 var PAGE_HEIGHT = $(window).height();
-var BOX_SIZE = PAGE_WIDTH/100;
-var grid = Create2DArray(PAGE_HEIGHT/BOX_SIZE, 100);
+var NUM_BOXES = 50;
+var BOX_SIZE = PAGE_WIDTH/NUM_BOXES;
+var grid = Create2DArray(PAGE_HEIGHT/BOX_SIZE, NUM_BOXES);
 
 
 (function() {
@@ -36,7 +37,7 @@ function createCells(){
 		}
 	}
 	for(var j = 0; j < grid[0].length; j++){
-		grid[0][j].setState(1);
+		grid[2][j].setState(1);
 	}
 }
 
@@ -49,7 +50,7 @@ function printCells(){
 
 //draw the grid
 function drawGrid(){
-	ctx.strokeStyle="#333333";
+	ctx.strokeStyle="#00002E";
 	for(var i = 0; i < grid.length; i++){
 		ctx.beginPath();
 		ctx.moveTo(0, BOX_SIZE*i);
@@ -70,26 +71,24 @@ function drawCells(){
 	for(var i = 0; i < grid.length; i++){
 		for(var j = 0; j < grid[i].length; j++){
 			if(grid[i][j].getState() == 1){
+				//Alive Cell
 				ctx.fillStyle="#000000";
 			}else{
-				ctx.fillStyle="#FFFFFF";
+				//Dead Cell
+				ctx.fillStyle="#00003D";
 			}
 			ctx.fillRect(BOX_SIZE*j,BOX_SIZE*i,BOX_SIZE,BOX_SIZE);
 		}
 	}
 }
+
+/* Cell class */
 function Cell(grid, row, column, state){
 	this.grid = grid;
 	this.row = row;
 	this.column = column;
 	this.state = state;
-
-	this.getRow = function(){
-		return this.row;
-	}
-	this.getColumn = function(){
-		return this.column;
-	}
+	
 	this.setState = function(state){
 		this.state = state;
 	}
@@ -136,7 +135,7 @@ function updateCells(){
 	* 4. Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 	*/
 	
-	var tempGrid = Create2DArray(PAGE_HEIGHT/BOX_SIZE,100);
+	var tempGrid = Create2DArray(PAGE_HEIGHT/BOX_SIZE,NUM_BOXES);
 	
 	//Create a copy of the old grid for reference
 	for(var k=0; k < grid.length;k++){
@@ -185,5 +184,5 @@ function run(){
 	drawCells();
 	drawGrid();
 }
-run();
-window.setInterval('run()',125);
+
+window.setInterval('run()',350);
