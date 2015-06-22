@@ -50,14 +50,19 @@ function KillCells(grid, existingCells) {
 function CreateCells(grid) {
     var createdCells = [];
     var currentRow = Math.floor(grid.length/2);
-   /* for(var i = 0; i< grid[currentRow].length;i++){
-        createdCells.push(new Cell(currentRow, i));
+    for(var i = 0; i< grid[currentRow].length;i++){
+        createdCells.push(new Cell(2, i));
+        //createdCells.push(new Cell(grid.length-1, i));
     }
-    */
-    for(var i = 0; i < grid[0].length; i+=6) {
-        for(var j = 0; j<grid.length; j++){
+   /* for(var j = 0; j<grid.length; j++) {
+        createdCells.push(new Cell(j, 1));
+        createdCells.push(new Cell(j, grid[currentRow].length -1));
+    }
+    /*for(var i = 0; i < grid[0].length; i+=2) {
+        for(var j = 0; j<grid.length; j+=1){
             createdCells.push(new Cell(j,i ));
         }
-    }
+    }*/
+
     return createdCells;
 }

@@ -17,7 +17,7 @@ var grid = Create2dArray();
 ResetArray(grid);
 var existingCells = CreateCells(grid);//[new Cell(1, 2), new Cell (2,2), new Cell(2,3)]; //
 FillArray(grid, existingCells);
-DrawGrid(grid);
+//DrawGrid(grid);
 FillGrid(grid);
 function run() {
     //CLEARS THE CANVAS
@@ -33,11 +33,11 @@ function run() {
     grid = FillArray(grid, existingCells);
 
     //REDRAWS AND REFILLS THE GRID
-    DrawGrid(grid);
+//    DrawGrid(grid);
     FillGrid(grid);
 
     PrintArray(grid);
 //    PrintNeighbors(grid);
 }
 
-window.setInterval("run()", 100);
+window.setInterval("run()", 450);
