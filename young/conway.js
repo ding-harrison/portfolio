@@ -18,7 +18,6 @@ var grid = Create2DArray(PAGE_HEIGHT/BOX_SIZE, NUM_BOXES);
 	ctx = c.getContext("2d");
 	c.width = PAGE_WIDTH;
 	c.height = PAGE_HEIGHT;
-
 })();
 function Create2DArray(rows, columns){
 	var arr = [];
@@ -73,11 +72,8 @@ function drawCells(){
 			if(grid[i][j].getState() == 1){
 				//Alive Cell
 				ctx.fillStyle="#000000";
-			}else{
-				//Dead Cell
-				ctx.fillStyle="#00003D";
+				ctx.fillRect(BOX_SIZE*j,BOX_SIZE*i,BOX_SIZE,BOX_SIZE);
 			}
-			ctx.fillRect(BOX_SIZE*j,BOX_SIZE*i,BOX_SIZE,BOX_SIZE);
 		}
 	}
 }
@@ -180,6 +176,7 @@ drawCells();
 drawGrid();
 
 function run(){
+	ctx.clearRect(0,0,canvas.width,canvas.height);
 	updateCells();
 	drawCells();
 	drawGrid();
