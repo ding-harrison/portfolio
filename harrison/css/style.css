@@ -1,15 +1,9 @@
-body {
-    width:100%;
-    height:100%;
-    margin:0 auto;
-}
-canvas {
-    display: block;
-    background: #3F2860;
-    overflow: hidden;
-    margin:0 auto;
-    opacity: .8;
-}
+/**************************************************************
+FONTS
+**************************************************************/
+/**************************************************************
+HEADER
+***************************************************************/
 #header {
     position: absolute;
     top: 0px;
@@ -18,15 +12,16 @@ canvas {
     height: 100%;
     margin :0 auto;
     text-align: center;
-    margin-top:15%;
+    margin-top:12%;
 }
-.circular-div{
-    border-width:0px;
-    border-radius:50%;
-    transition-duration:.5s;
+#header-name {
+    font-size:50px;
+    margin-bottom:5px;
+    font-color:#888888;
 }
-.circular-div:hover{
-    background: #FFF
+#header-description-text {
+    margin:10px;
+    font-family:"Raleway";
 }
 .header-buttons{
     margin:10px;
@@ -36,6 +31,9 @@ canvas {
 .header-buttons img{
     width:100%;
     height:100%
+}
+.header-buttons img:hover{
+    opacity:.3;
 }
 #social-media-buttons{
     margin:0 auto;
@@ -48,4 +46,61 @@ canvas {
 #social-media-buttons ul li{
    display:inline-block; 
    text-decoration: none;
+}
+
+/********************************************************
+FOOTER
+*********************************************************/
+#footer{
+    margin:0 auto;
+    text-align:center;
+    font-family:'Raleway';
+    margin-bottom:5%;
+    margin-top:5%;
+}
+#footer img {
+    border-radius:50%;
+    width:150px;
+    height:150px;
+}
+#contact-me-button {
+    background:#3f2860;
+    text-decoration:none;
+    color:white;
+    padding:10px;
+    transition-duration:.5s;
+    border-radius:7%;
+    
+}
+#contact-me-button:hover{
+    opacity:.6;
+}
+/********************************************************
+CANVAS
+*********************************************************/
+canvas {
+    display: block;
+    background: #3F2860;
+    overflow: hidden;
+    margin:0 auto;
+    opacity: .8;
+}
+/*******************************************************
+DIV TYPES
+********************************************************/
+.circular-div{
+    border-width:0px;
+    border-radius:50%;
+    transition-duration:.5s;
+}
+.circular-div:hover{
+    background: #FFF
+}
+
+body {
+    background:#FFFFCC;
+    width:100%;
+    height:100%;
+    margin:0 auto;
+    font-family:'Orbitron';
 }
