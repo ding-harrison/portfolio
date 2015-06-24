@@ -60,31 +60,14 @@ ABOUT
 }
 #about img {
     border-radius:50%;
-    width:50%;
-    height:50%;
+    width:350px;
+    height:350px;
     margin:0 auto;
     display:block;
     top:100px;
 }
-#about ul{
-    margin:0;
-    margin-top:5%;
-    padding:0;
-}
-#about ul li{
-    width:39%;
-    height:50%;
-    text-decoration:none;
-    display:inline-block;
-    margin-left:5%;
-    margin-right:5%;
-}
-#about-description{
-    display:block;
-    width:50%;
-    height:100%;
-    margin:auto;
-    vertical-align:middle;
+#about-stuff {
+    float:left;
 }
 /********************************************************
 FOOTER
