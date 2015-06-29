@@ -12,7 +12,7 @@ HEADER
     height: 100%;
     margin :0 auto;
     text-align: center;
-    margin-top:12%;
+    margin-top:15%;
 }
 #header-name {
     font-size:50px;
@@ -33,7 +33,8 @@ HEADER
     height:100%
 }
 .header-buttons img:hover{
-    opacity:.3;
+    opacity:.5;
+    transition-duration:.6s;
 }
 #social-media-buttons{
     margin:0 auto;
@@ -47,7 +48,27 @@ HEADER
    display:inline-block; 
    text-decoration: none;
 }
-
+/*******************************************************
+ABOUT
+**********************************************************/
+#about{
+    font-family:'Raleway';
+    margin-top:5%;
+}
+#about h1{
+    text-align:center;
+}
+#about img {
+    border-radius:50%;
+    width:350px;
+    height:350px;
+    margin:0 auto;
+    display:block;
+    top:100px;
+}
+#about-stuff {
+    float:left;
+}
 /********************************************************
 FOOTER
 *********************************************************/
@@ -58,29 +79,53 @@ FOOTER
     margin-bottom:5%;
     margin-top:5%;
 }
-#footer img {
-    border-radius:50%;
-    width:150px;
-    height:150px;
+
+#footer p{
+    margin-bottom:55px;
 }
 #contact-me-button {
-    background:#3f2860;
-    text-decoration:none;
-    color:white;
-    padding:10px;
+    background:transparent;
+    color:black;
     transition-duration:.5s;
-    border-radius:7%;
-    
+
+    padding:10px;
+    padding-left:15px;
+    padding-right:15px;
+
+    border:3px double green;
+    border-radius:9px;
+
+    text-decoration:none;
+    text-transform:uppercase;
+    text-shadow:
+    -1px -1px 0 #CCE6FF,
+    1px -1px 0 #CCE6ff,
+    -1px 1px 0 #CCE6ff,
+    1px 1px 0 #CCE6ff;
+    font-size:20px;    
+}
+/*#contact-me-button:after{
+   transition:.3s;
+   content:'';
+   width:0;
+   left:50%;
+   bottom:0;
+   height:3px;
+   background:#f7f7f7;
 }
 #contact-me-button:hover{
-    opacity:.6;
+    cursor:pointer;
 }
+#contact-me-button:hover:after{
+    width:100%;
+    left:0;
+}*/
 /********************************************************
 CANVAS
 *********************************************************/
 canvas {
     display: block;
-    background: #3F2860;
+    background: #abcde2;
     overflow: hidden;
     margin:0 auto;
     opacity: .8;
@@ -91,7 +136,7 @@ DIV TYPES
 .circular-div{
     border-width:0px;
     border-radius:50%;
-    transition-duration:.5s;
+    transition-duration:.8s;
 }
 .circular-div:hover{
     background: #FFF
@@ -102,5 +147,7 @@ body {
     width:100%;
     height:100%;
     margin:0 auto;
+}
+h1{
     font-family:'Orbitron';
 }

@@ -70,7 +70,7 @@ function FillGrid(arr){
     for(i=0; i < arr.length;i++){
         for(j = 0; j < arr[i].length;j++) {
            if(grid[i][j] == 1) {
-                context.fillStyle ="#005080";
+                context.fillStyle ="#cce6ff";
                 context.fillRect(j*BOX_SIZE, i*BOX_SIZE, BOX_SIZE, BOX_SIZE);
                 context.fillStyle = "#FFFFFF";
            }
