@@ -2,10 +2,9 @@ body{
 	margin: 0;
 	padding: 0;
 	font-family:'Roboto', sans-serif;
-	background-color:#FDF6E3;
 }
 p{
-	font-size:24px;
+	font-size:20px;
 }
 .title{
 	font-style:italic;
@@ -26,9 +25,10 @@ p{
 	left: 0;
 	width:100%;
 	height:100%;
+	text-align:center;
 }
 #intro-wrapper #intro-text{
-	margin-top:15%;
+	margin-top:10%;
 	text-align:center;
 }
 #intro-wrapper #intro-text h1{
@@ -37,7 +37,20 @@ p{
 }
 #intro-wrapper #intro-text p{
 	margin-top:0px;
+	font-size:24px;
 	color:white;
+}
+#intro-wrapper #intro-text a:hover,a:active,a:link,a:visited{
+	color:white;
+}
+#intro-wrapper img{
+	border-radius:50%;
+}
+#profile-picture{
+	width:200px;
+	height:200px;
+	margin-top:15px;
+	margin-bottom:15px;
 }
 #contact-buttons{
 	width:100%;
@@ -85,22 +98,55 @@ p{
 	background-color:#000088;
 }
 #about{
-	margin:0 auto;
-	width:40%;
-	text-align:center;
+	margin:25px auto;
+	width:60%;
 }
 #about h1{
 	font-size:48px;
 	font-weight:bold;
 	margin:5px;
 }
-#about img{
-	border-radius:50%;
-	width:200px;
-	height:200px;
-	margin-top:5%;
+#about p{
+	margin-top:5px;
+	padding-bottom:0px;
+	margin-bottom:0px;
 }
 #about #bio{
+	border-left: 15px solid #00003D;
+	padding:15px 0px 15px 20px;
+}
+#about #bio a{
+	color:black;
+}
+#about #works{
+	border-left:15px solid #FFCC00;
+	padding:10px 0px 0px 20px;
+}
+#about #works .project-preview{
+	border-left:15px solid #FF6C00;
+	padding-top:15px;
+	padding-left:20px;
+	margin-top:0px;
+	margin-left:-20px;
+}
+#about #works .project-preview .project-description{
+	padding-left:20px;
+	margin-left:-20px;
+	border-left:15px solid red;
+	padding-top:15px;
+}
+#about #works .project-preview img{
+	width:70%;
+	display:block;
+	margin:0 auto;
+	text-align:center;
+}
+#about .section-title{
+	padding-bottom:0px;
+	margin-bottom:10px;
+	margin-top:0px;
+	font-size:24px;
+	font-weight:bold;
 }
 #footer{
 	clear:both;

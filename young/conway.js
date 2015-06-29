@@ -8,7 +8,7 @@ var c;
 var ctx;
 var PAGE_WIDTH = $(window).width();
 var PAGE_HEIGHT = $(window).height();
-var NUM_BOXES = 50;
+var NUM_BOXES = 150;
 var BOX_SIZE = PAGE_WIDTH/NUM_BOXES;
 var grid = Create2DArray(PAGE_HEIGHT/BOX_SIZE, NUM_BOXES);
 
@@ -35,8 +35,11 @@ function createCells(){
 			grid[i][j] = new Cell(grid,i,j,0);	
 		}
 	}
-	for(var j = 0; j < grid[0].length; j++){
-		grid[2][j].setState(1);
+	for(var k = 0; k < grid.length; k++){
+		for(var l = 0; l < grid[k].length; l++){
+			if(l == 20 || l == grid[k].length - 21)
+				grid[k][l].setState(1);
+		}
 	}
 }
 
@@ -71,7 +74,7 @@ function drawCells(){
 		for(var j = 0; j < grid[i].length; j++){
 			if(grid[i][j].getState() == 1){
 				//Alive Cell
-				ctx.fillStyle="#000000";
+				ctx.fillStyle="#161648";
 				ctx.fillRect(BOX_SIZE*j,BOX_SIZE*i,BOX_SIZE,BOX_SIZE);
 			}
 		}
@@ -182,4 +185,4 @@ function run(){
 	drawGrid();
 }
 
-window.setInterval('run()',350);
+window.setInterval('run()',600);
